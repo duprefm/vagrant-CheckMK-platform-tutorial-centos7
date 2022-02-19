@@ -1,3 +1,6 @@
+# Prerequisites.
+You need to install *[Vagrant](https://www.vagrantup.com/docs/installation)* and *[VirtualBox](https://www.virtualbox.org/)*.
+
 # Architecture
 ![title](Images/distributed_monitoring_overview_en.png)
 # Getting started
