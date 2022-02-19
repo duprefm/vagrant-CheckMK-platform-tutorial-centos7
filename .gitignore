@@ -351,3 +351,5 @@ MigrationBackup/
 
 # Vangrant
 .vagrant/
+
+.DS_Store
