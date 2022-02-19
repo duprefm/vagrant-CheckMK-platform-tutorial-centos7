@@ -1,3 +1,5 @@
+# Architecture
+![title](Images/distributed_monitoring_overview_en.png)
 # Getting started
 
 ```bash
