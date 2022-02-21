@@ -1,5 +1,6 @@
 # Prerequisites.
-You need to install *[Vagrant](https://www.vagrantup.com/docs/installation)* and *[VirtualBox](https://www.virtualbox.org/)*.
+The Infrastructure deployed in this tutorial is based on Vagrant and VirtualBox.
+Before starting, you need to install *[Vagrant](https://www.vagrantup.com/docs/installation)* and *[VirtualBox](https://www.virtualbox.org/)*.
 
 # Architecture
 ![title](Images/distributed_monitoring_overview_en.png)
@@ -9,14 +10,24 @@ You need to install *[Vagrant](https://www.vagrantup.com/docs/installation)* and
 git clone https://github.com/duprefm/vagrant-CheckMK-platform-tutorial-centos7.git
 cd vagrant-CheckMK-platform-tutorial-centos7
 vagrant up
-vagrant ssh
 ```
-
-Once the Vagrant box has spun up successfully a new site must be created
+## Central Site creation
+Once the Vagrant box has spun up successfully a new site called **CentralSite** must be created.
 
 ```bash
-sudo omd create <site-name>
+vagrant ssh central
+sudo omd create CentralSite
 ```
+
+## Central Site creation
+Once the Central Site has been successfully created, a new slave site called **RemoteSite1** must be created.
+
+```bash
+exit
+vagrant ssh remote1
+sudo omd create RemoteSite1
+```
+
 
 Once a site has been created it can be configured.
 
