@@ -29,7 +29,7 @@ cmknodes=[
   {
     :hostname => "node02",
     :ip => "192.168.10.17",
-    :box => "centos/7",
+    :box => "peru/windows-server-2016-standard-x64-e",
     :ram => 512,
     :cpu => 1
   }
@@ -49,8 +49,8 @@ Vagrant.configure(2) do |config|
         end
     end
     config.vm.provision "shell", inline: <<-SHELL
-    sudo yum update -y
-    sudo yum upgrade -y
+    #sudo yum update -y
+    #sudo yum upgrade -y
   SHELL
 end
 
@@ -78,16 +78,5 @@ Vagrant.configure(2) do |config|
     sudo setsebool -P httpd_can_network_connect 1
     sudo firewall-cmd --zone=public --add-service=http --permanent
     sudo firewall-cmd --reload
-    sudo wget https://checkmk.com/support/Check_MK-pubkey.gpg | apt-key -add -
-    sudo omd create site
-    sudo omd start site
-    echo
-    ip=$(ip -o a s eth1 | grep /2 | awk '{print $4}' | cut -d/ -f 1)
-    echo "In your browser, go to:"
-    echo " - http://${ip}/site/"
-    echo
-    echo "Default credentials are => omdadmin:omd"
-    echo
-    echo "Happy monitoring!"
   SHELL
 end
