@@ -66,7 +66,7 @@ Vagrant.configure(2) do |config|
             end
         end
     end
-    #config.vm.provision "shell", path: "bootstrap-cmklinuxnode.sh" end
+    config.vm.provision "shell", path: "bootstrap-cmkwinnode.ps1" end
 
 Vagrant.configure(2) do |config|
   cmkservers.each do |machine|
