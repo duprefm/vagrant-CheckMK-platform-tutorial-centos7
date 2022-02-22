@@ -2,6 +2,8 @@
 The Infrastructure deployed in this tutorial is based on Vagrant and VirtualBox.
 Before starting, you need to install *[Vagrant](https://www.vagrantup.com/docs/installation)* and *[VirtualBox](https://www.virtualbox.org/)*.
 
+I've previuously downloaded and putted on Sources directory check-mk-raw-2.0.0p20-el7-38.x86_64.rpm file from Check_MK site.
+
 # Architecture
 ![title](Images/distributed_monitoring_overview_en.png)
 # Getting started
@@ -15,10 +17,16 @@ vagrant up
 Once the Vagrant box has spun up successfully a new site called **CentralSite** must be created.
 
 ```bash
-vagrant ssh central
-sudo omd create CentralSite
+> vagrant ssh central
+$ cd /vagrant
+$ sudo yum install check-mk-raw-2.0.0p20-el7-38.x86_64.rpm
+$ sudo su -
+# omd create centralsite
+# su - centralsite
+~$ omd start
 ```
-
+Once the Check_MK site **CentralSite** is created you can login to Check_MK using the following url :
+http://192.168.10.14/centralsite/
 ## Central Site creation
 Once the Central Site has been successfully created, a new slave site called **RemoteSite1** must be created.
 
