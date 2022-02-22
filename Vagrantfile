@@ -18,14 +18,17 @@ cmkservers=[
   }
 ]
 
-cmknodes=[
+cmklnxnodes=[
   {
     :hostname => "node01",
     :ip => "192.168.10.16",
     :box => "centos/7",
     :ram => 512,
     :cpu => 1
-  },
+  }
+]
+
+cmkwinnodes=[
   {
     :hostname => "node02",
     :ip => "192.168.10.17",
@@ -36,7 +39,7 @@ cmknodes=[
 ]
 
 Vagrant.configure(2) do |config|
-    cmknodes.each do |machine|
+    cmklnxnodes.each do |machine|
         config.vm.define machine[:hostname] do |node|
             node.vm.box = machine[:box]
             node.vm.hostname = machine[:hostname]
@@ -49,6 +52,21 @@ Vagrant.configure(2) do |config|
         end
     end
     config.vm.provision "shell", path: "bootstrap-cmklinuxnode.sh" end
+
+Vagrant.configure(2) do |config|
+    cmkwinnodes.each do |machine|
+        config.vm.define machine[:hostname] do |node|
+            node.vm.box = machine[:box]
+            node.vm.hostname = machine[:hostname]
+            node.vm.network "private_network", ip: machine[:ip]
+            node.vm.provider "virtualbox" do |vb|
+        vb.gui = false
+        vb.memory = machine[:ram]
+        vb.cpus = machine[:cpu]
+            end
+        end
+    end
+    #config.vm.provision "shell", path: "bootstrap-cmklinuxnode.sh" end
 
 Vagrant.configure(2) do |config|
   cmkservers.each do |machine|
