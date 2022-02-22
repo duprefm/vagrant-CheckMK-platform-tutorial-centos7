@@ -4,14 +4,14 @@
 cmkservers=[
   {
     :hostname => "central",
-    :ip => "192.168.10.14",
+    :ip => "192.168.56.14",
     :box => "centos/7",
     :ram => 1536,
     :cpu => 1
   },
   {
     :hostname => "remote1",
-    :ip => "192.168.10.15",
+    :ip => "192.168.56.15",
     :box => "centos/7",
     :ram => 1536,
     :cpu => 1
@@ -21,7 +21,7 @@ cmkservers=[
 cmklnxnodes=[
   {
     :hostname => "node01",
-    :ip => "192.168.10.16",
+    :ip => "192.168.56.16",
     :box => "centos/7",
     :ram => 1024,
     :cpu => 1
@@ -31,7 +31,7 @@ cmklnxnodes=[
 cmkwinnodes=[
   {
     :hostname => "node02",
-    :ip => "192.168.10.17",
+    :ip => "192.168.56.17",
     :box => "mwrock/Windows2016",
     :ram => 1536,
     :cpu => 1
