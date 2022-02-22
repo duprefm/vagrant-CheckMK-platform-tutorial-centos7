@@ -354,6 +354,4 @@ MigrationBackup/
 
 .DS_Store
 
-Sources/
-
-check-mk-raw-2.0.0p20-el7-38.x86_64.rpm
+check-mk-free-2.0.0p20-el7-38.x86_64.rpm

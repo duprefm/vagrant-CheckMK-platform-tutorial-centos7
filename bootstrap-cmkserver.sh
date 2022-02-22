@@ -5,6 +5,8 @@ sudo yum upgrade -y
 sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y
 sudo yum-config-manager --enable rhel-7-server-optional-rpms -y
 sudo yum-config-manager --enable rhel-7-server-extras-rpms -y
+sudo setenforce 0
+sudo sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 #sudo subscription-manager repos --enable rhel-7-server-optional-rpms -y
 #sudo subscription-manager repos --enable rhel-7-server-extras-rpms
 #sudo setsebool -P httpd_can_network_connect 1

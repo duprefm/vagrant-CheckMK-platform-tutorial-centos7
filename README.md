@@ -18,16 +18,20 @@ Once the Vagrant box has spun up successfully a new site called **CentralSite** 
 
 ```bash
 > vagrant ssh central
-$ cd /vagrant
-$ sudo yum install check-mk-raw-2.0.0p20-el7-38.x86_64.rpm
 $ sudo su -
-# omd create centralsite
-# su - centralsite
-~$ omd start
+cd /vagrant
+yum install check-mk-raw-2.0.0p20-el7-38.x86_64.rpm
+omd create centralsite
+omd start centralsite
 ```
-Once the Check_MK site **CentralSite** is created you can login to Check_MK using the following url :
+
+Now Check_MK's site **CentralSite** is created and started, you can login to the UI using the following url :
 http://192.168.10.14/centralsite/
-## Central Site creation
+## First rules.
+Now i will create some rules for monitoring:
+- Folder CentralSite.
+- Folder RemoteSite1.
+## RemoteSite1 Site creation
 Once the Central Site has been successfully created, a new slave site called **RemoteSite1** must be created.
 
 ```bash
