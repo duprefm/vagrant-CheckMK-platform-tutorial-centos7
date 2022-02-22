@@ -20,7 +20,7 @@ Once the Vagrant box has spun up successfully a new site called **CentralSite** 
 > vagrant ssh central
 $ sudo su -
 cd /vagrant
-yum install check-mk-raw-2.0.0p20-el7-38.x86_64.rpm
+yum install check-mk-free-2.0.0p20-el7-38.x86_64.rpm
 omd create centralsite
 omd start centralsite
 ```
