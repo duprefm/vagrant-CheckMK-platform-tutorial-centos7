@@ -1,42 +1,81 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-cmkservers=[
-  {
-    :hostname => "central",
-    :ip => "192.168.56.14",
-    :box => "centos/7",
-    :ram => 1536,
-    :cpu => 1
-  },
-  {
-    :hostname => "remote1",
-    :ip => "192.168.56.15",
-    :box => "centos/7",
-    :ram => 1536,
-    :cpu => 1
-  }
-]
+if Vagrant::Util::Platform.windows?
+  cmkservers=[
+    {
+      :hostname => "central",
+      :ip => "192.168.10.14",
+      :box => "centos/7",
+      :ram => 1536,
+      :cpu => 1
+    },
+    {
+      :hostname => "remote1",
+      :ip => "192.168.10.15",
+      :box => "centos/7",
+      :ram => 1536,
+      :cpu => 1
+    }
+  ]
 
-cmklnxnodes=[
-  {
-    :hostname => "node01",
-    :ip => "192.168.56.16",
-    :box => "centos/7",
-    :ram => 1024,
-    :cpu => 1
-  }
-]
+  cmklnxnodes=[
+    {
+      :hostname => "node01",
+      :ip => "192.168.10.16",
+      :box => "centos/7",
+      :ram => 1024,
+      :cpu => 1
+    }
+  ]
 
-cmkwinnodes=[
-  {
-    :hostname => "node02",
-    :ip => "192.168.56.17",
-    :box => "mwrock/Windows2016",
-    :ram => 1536,
-    :cpu => 1
-  }
-]
+  cmkwinnodes=[
+    {
+      :hostname => "node02",
+      :ip => "192.168.10.17",
+      :box => "mwrock/Windows2016",
+      :ram => 1536,
+      :cpu => 1
+    }
+  ]
+else
+  cmkservers=[
+    {
+      :hostname => "central",
+      :ip => "192.168.56.14",
+      :box => "centos/7",
+      :ram => 1536,
+      :cpu => 1
+    },
+    {
+      :hostname => "remote1",
+      :ip => "192.168.56.15",
+      :box => "centos/7",
+      :ram => 1536,
+      :cpu => 1
+    }
+  ]
+
+  cmklnxnodes=[
+    {
+      :hostname => "node01",
+      :ip => "192.168.56.16",
+      :box => "centos/7",
+      :ram => 1024,
+      :cpu => 1
+    }
+  ]
+
+  cmkwinnodes=[
+    {
+      :hostname => "node02",
+      :ip => "192.168.56.17",
+      :box => "mwrock/Windows2016",
+      :ram => 1536,
+      :cpu => 1
+    }
+  ]
+end
 
 Vagrant.configure(2) do |config|
   cmklnxnodes.each do |machine|
