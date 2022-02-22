@@ -69,7 +69,7 @@ Vagrant.configure(2) do |config|
     config.vm.provision "shell", path: "bootstrap-cmkwinnode.ps1" end
 
 Vagrant.configure(2) do |config|
-  cmkservers.each do |machine|
+    cmkservers.each do |machine|
       config.vm.define machine[:hostname] do |node|
           node.vm.box = machine[:box]
           node.vm.hostname = machine[:hostname]
@@ -80,5 +80,5 @@ Vagrant.configure(2) do |config|
       vb.cpus = machine[:cpu]
           end
       end
-  end
-  config.vm.provision "shell", path: "bootstrap-cmkserver.sh" end
+    end
+    config.vm.provision "shell", path: "bootstrap-cmkserver.sh" end
