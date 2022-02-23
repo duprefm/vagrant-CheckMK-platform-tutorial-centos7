@@ -25,6 +25,7 @@ $ sudo omd start centralsite
 
 Now CheckMK site **centralsite** is created and started, you can login to the UI using the credentials given when 'centralsite' was created and using the following url:
 http://192.168.10.14/centralsite/
+
 ![title](Images/CheckMK_centralsite_login.PNG)
 ## Monitoring the infrastructure.
 Now i will create some folders, setup 'Automatic updates' feature for agents, deploy agents on servers and setup monitoring :
@@ -36,17 +37,17 @@ Now i will create some folders, setup 'Automatic updates' feature for agents, de
 ### Install Check_MK agent on Linux
 - Connected on the client side.
 ```bash
-$ sudo yum install /vagrant/check-mk-agent-2.0.0p20-1c2a57a440f93ed0.noarch.rpm -y
+$ sudo yum install /vagrant/check-mk-agent-2.0.0p20-[hash].noarch.rpm -y
 $ sudo /usr/lib/check_mk_agent/plugins/900/cmk-update-agent register -vvv -s 192.168.10.14 -i centralsite -p http -H [monitored server name] -U cmkadmin -P [password for cmkadmin user]
 $ sudo /usr/lib/check_mk_agent/plugins/900/cmk-update-agent -v
 ```
 ### Install Check_MK agent on Windows
 - Connected on the client side.
 ```bash
-> vagrant ssh central
-$ sudo yum install /vagrant/check-mk-free-2.0.0p20-el7-38.x86_64.rpm -y
-$ sudo omd create centralsite
-$ sudo omd start centralsite
+> vagrant rdp node02
+D:\msiexec /i check-mk-agent-1.4.0p26-350c3746e0c26865.msi /qn
+C:\Program Files (x86)\check_mk\plugins>cmk-update-agent.exe register -s 10.193.64.24 -i frdivcmk -p http -H SMNTLS400N -U cmkadmin -P ch3ck_MK
+C:\Program Files (x86)\check_mk\plugins>cmk-update-agent.exe -vè
 ```
 ## RemoteSite1 Site creation
 Once the Central Site has been successfully created, a new slave site called **remotesite1** must be created.
