@@ -7,14 +7,14 @@ if Vagrant::Util::Platform.windows?
       :hostname => "central",
       :ip => "192.168.10.14",
       :box => "centos/7",
-      :ram => 1536,
-      :cpu => 1
+      :ram => 2048,
+      :cpu => 2
     },
     {
       :hostname => "remote1",
       :ip => "192.168.10.15",
       :box => "centos/7",
-      :ram => 1536,
+      :ram => 2048,
       :cpu => 1
     }
   ]
@@ -34,7 +34,7 @@ if Vagrant::Util::Platform.windows?
       :hostname => "node02",
       :ip => "192.168.10.17",
       :box => "mwrock/Windows2016",
-      :ram => 1536,
+      :ram => 2048,
       :cpu => 1
     }
   ]
@@ -44,14 +44,14 @@ else
       :hostname => "central",
       :ip => "192.168.56.14",
       :box => "centos/7",
-      :ram => 1536,
-      :cpu => 1
+      :ram => 2048,
+      :cpu => 2
     },
     {
       :hostname => "remote1",
       :ip => "192.168.56.15",
       :box => "centos/7",
-      :ram => 1536,
+      :ram => 2048,
       :cpu => 1
     }
   ]
@@ -70,8 +70,8 @@ else
     {
       :hostname => "node02",
       :ip => "192.168.56.17",
-      :box => "mwrock/Windows2016",
-      :ram => 1536,
+      :box => "gusztavvargadr/windows-server-2016-standard",
+      :ram => 2048,
       :cpu => 1
     }
   ]
@@ -106,7 +106,7 @@ Vagrant.configure(2) do |config|
       end
     end
   end
-  config.vm.provision "shell", path: "bootstrap-cmklinuxnode.sh"
+  config.vm.provision "shell", path: "bootstrap-cmkwinnode.ps1"
 end
 
 Vagrant.configure(2) do |config|
