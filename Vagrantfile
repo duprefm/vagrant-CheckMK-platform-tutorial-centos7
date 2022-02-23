@@ -84,13 +84,14 @@ Vagrant.configure(2) do |config|
       node.vm.hostname = machine[:hostname]
       node.vm.network "private_network", ip: machine[:ip]
       node.vm.provider "virtualbox" do |vb|
-  	    vb.gui = false
-			  vb.memory = machine[:ram]
-			  vb.cpus = machine[:cpu]
+        vb.gui = false
+        vb.memory = machine[:ram]
+        vb.cpus = machine[:cpu]
       end
+    config.vm.provision "shell", path: "bootstrap-cmklinuxnode.sh"
     end
   end
-  config.vm.provision "shell", path: "bootstrap-cmklinuxnode.sh"
+  #config.vm.provision "shell", path: "bootstrap-cmklinuxnode.sh"
 end
 
 Vagrant.configure(2) do |config|
@@ -100,13 +101,14 @@ Vagrant.configure(2) do |config|
       node.vm.hostname = machine[:hostname]
       node.vm.network "private_network", ip: machine[:ip]
       node.vm.provider "virtualbox" do |vb|
-  	    vb.gui = false
-			  vb.memory = machine[:ram]
-			  vb.cpus = machine[:cpu]
+        vb.gui = false
+        vb.memory = machine[:ram]
+        vb.cpus = machine[:cpu]
       end
+    config.vm.provision "shell", path: "bootstrap-cmkwinnode.ps1"
     end
   end
-  config.vm.provision "shell", path: "bootstrap-cmkwinnode.ps1"
+  #config.vm.provision "shell", path: "bootstrap-cmkwinnode.ps1"
 end
 
 Vagrant.configure(2) do |config|
@@ -120,7 +122,8 @@ Vagrant.configure(2) do |config|
         vb.memory = machine[:ram]
         vb.cpus = machine[:cpu]
       end
+    config.vm.provision "shell", path: "bootstrap-cmkserver.sh"
     end
   end
-  config.vm.provision "shell", path: "bootstrap-cmkserver.sh"
+  #config.vm.provision "shell", path: "bootstrap-cmkserver.sh"
 end
