@@ -355,3 +355,4 @@ MigrationBackup/
 .DS_Store
 
 check-mk-free-2.0.0p20-el7-38.x86_64.rpm
+check-mk-agent-2.0.0p20-d18c858b5c8e5f48.noarch.rpm

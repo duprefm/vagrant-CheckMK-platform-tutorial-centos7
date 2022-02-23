@@ -18,26 +18,49 @@ Once the Vagrant box has spun up successfully a new site called **CentralSite** 
 
 ```bash
 > vagrant ssh central
-$ sudo su -
-cd /vagrant
-yum install check-mk-free-2.0.0p20-el7-38.x86_64.rpm
-omd create centralsite
-omd start centralsite
+$ sudo yum install /vagrant/check-mk-free-2.0.0p20-el7-38.x86_64.rpm -y
+$ sudo omd create centralsite
+$ sudo omd start centralsite
 ```
 
-Now Check_MK's site **CentralSite** is created and started, you can login to the UI using the following url :
+Now CheckMK site **centralsite** is created and started, you can login to the UI using the credentials given when 'centralsite' was created and using the following url:
 http://192.168.10.14/centralsite/
-## First rules.
-Now i will create some rules for monitoring:
-- Folder CentralSite.
-- Folder RemoteSite1.
+![title](Images/CheckMK_centralsite_login.PNG)
+## Monitoring the infrastructure.
+Now i will create some folders, setup 'Automatic updates' feature for agents, deploy agents on servers and setup monitoring :
+- Creating folder 'CentralSite'.
+- Creating folder 'RemoteSite1'.
+- Setup 'Automatic updates'.
+- Install CheckMK agent on servers.
+
+### Install Check_MK agent on Linux
+- Connected on the client side.
+```bash
+$ sudo yum install /vagrant/check-mk-agent-2.0.0p20-1c2a57a440f93ed0.noarch.rpm -y
+$ sudo /usr/lib/check_mk_agent/plugins/900/cmk-update-agent register -vvv -s 192.168.10.14 -i centralsite -p http -H [monitored server name] -U cmkadmin -P [password for cmkadmin user]
+$ sudo /usr/lib/check_mk_agent/plugins/900/cmk-update-agent -v
+```
+### Install Check_MK agent on Windows
+- Connected on the client side.
+```bash
+> vagrant ssh central
+$ sudo yum install /vagrant/check-mk-free-2.0.0p20-el7-38.x86_64.rpm -y
+$ sudo omd create centralsite
+$ sudo omd start centralsite
+```
 ## RemoteSite1 Site creation
-Once the Central Site has been successfully created, a new slave site called **RemoteSite1** must be created.
+Once the Central Site has been successfully created, a new slave site called **remotesite1** must be created.
 
 ```bash
-exit
-vagrant ssh remote1
-sudo omd create RemoteSite1
+> vagrant ssh remote1
+$ sudo yum install /vagrant/check-mk-free-2.0.0p20-el7-38.x86_64.rpm -y
+$ sudo omd create remotesite1
+$ sudo omd start remotesite1
+$ sudo su -
+# su - remotesite1
+$ omd config
+...
+$ omd start
 ```
 
 
