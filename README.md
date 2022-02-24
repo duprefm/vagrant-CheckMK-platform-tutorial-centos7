@@ -43,11 +43,11 @@ $ sudo /usr/lib/check_mk_agent/plugins/900/cmk-update-agent -v
 ```
 ### Install Check_MK agent on Windows
 - Connected on the client side.
+On command prompt (run as an administrator), run the following :
 ```bash
-> vagrant rdp node02
-D:\msiexec /i check-mk-agent-1.4.0p26-350c3746e0c26865.msi /qn
-C:\Program Files (x86)\check_mk\plugins>cmk-update-agent.exe register -s 10.193.64.24 -i frdivcmk -p http -H SMNTLS400N -U cmkadmin -P ch3ck_MK
-C:\Program Files (x86)\check_mk\plugins>cmk-update-agent.exe -vè
+>msiexec /i C:\vagrant\check-mk-agent-2.0.0p20-ac10e7f609d2a1a9.msi /qn
+C:\Program Files (x86)\checkmk\service>check_mk_agent.exe updater register -s 192.168.10.14 -i centralsite -H [monitored server name] -U cmkadmin -P [password for cmkadmin user]
+C:\Program Files (x86)\checkmk\service>check_mk_agent.exe cmk_update_agent
 ```
 ## RemoteSite1 Site creation
 Once the Central Site has been successfully created, a new slave site called **remotesite1** must be created.
