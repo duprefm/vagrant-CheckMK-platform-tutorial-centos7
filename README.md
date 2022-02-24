@@ -44,8 +44,8 @@ $ sudo /usr/lib/check_mk_agent/plugins/900/cmk-update-agent -v
 ### Install Check_MK agent on Windows
 - Connected on the client side.
 On command prompt (run as an administrator), run the following :
-```bash
->msiexec /i C:\vagrant\check-mk-agent-2.0.0p20-ac10e7f609d2a1a9.msi /qn
+```dos
+>msiexec /i C:\vagrant\check-mk-agent-2.0.0p20-[hash].msi /qn
 C:\Program Files (x86)\checkmk\service>check_mk_agent.exe updater register -s 192.168.10.14 -i centralsite -H [monitored server name] -U cmkadmin -P [password for cmkadmin user]
 C:\Program Files (x86)\checkmk\service>check_mk_agent.exe cmk_update_agent
 ```
