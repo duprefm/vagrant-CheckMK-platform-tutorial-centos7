@@ -7,27 +7,17 @@ if Vagrant::Util::Platform.windows?
       :hostname => "central",
       :ip => "192.168.10.14",
       :box => "centos/7",
-<<<<<<< HEAD
-      :ram => 1536,
-      :cpu => 1
-=======
       :ram => 2048,
-      :cpu => 2,
+      :cpu => 1,
       :bootstrap => "bootstrap-cmkserver.sh"
->>>>>>> 080737107d0ba9cb4b467d2a0d36c3e66d0fe043
     },
     {
       :hostname => "remote1",
       :ip => "192.168.10.15",
       :box => "centos/7",
-<<<<<<< HEAD
       :ram => 1024,
-      :cpu => 1
-=======
-      :ram => 2048,
       :cpu => 1,
       :bootstrap => "bootstrap-cmkserver.sh"
->>>>>>> 080737107d0ba9cb4b467d2a0d36c3e66d0fe043
     }
   ]
 
@@ -58,27 +48,17 @@ else
       :hostname => "central",
       :ip => "192.168.56.14",
       :box => "centos/7",
-<<<<<<< HEAD
-      :ram => 1536,
-      :cpu => 1
-=======
       :ram => 2048,
-      :cpu => 2,
+      :cpu => 1,
       :bootstrap => "bootstrap-cmkserver.sh"
->>>>>>> 080737107d0ba9cb4b467d2a0d36c3e66d0fe043
     },
     {
       :hostname => "remote1",
       :ip => "192.168.56.15",
       :box => "centos/7",
-<<<<<<< HEAD
       :ram => 1024,
-      :cpu => 1
-=======
-      :ram => 2048,
       :cpu => 1,
       :bootstrap => "bootstrap-cmkserver.sh"
->>>>>>> 080737107d0ba9cb4b467d2a0d36c3e66d0fe043
     }
   ]
 
@@ -111,18 +91,12 @@ Vagrant.configure(2) do |config|
       node.vm.box = machine[:box]
       node.vm.hostname = machine[:hostname]
       node.vm.network "private_network", ip: machine[:ip]
-<<<<<<< HEAD
-=======
       node.vm.provision "shell", path: machine[:bootstrap]
->>>>>>> 080737107d0ba9cb4b467d2a0d36c3e66d0fe043
       node.vm.provider "virtualbox" do |vb|
         vb.gui = false
         vb.memory = machine[:ram]
         vb.cpus = machine[:cpu]
-<<<<<<< HEAD
-=======
         #config.vm.provision "shell", path: machine[:bootstrap]
->>>>>>> 080737107d0ba9cb4b467d2a0d36c3e66d0fe043
       end
     #config.vm.provision "shell", path: "bootstrap-cmklinuxnode.sh"
     end
@@ -136,18 +110,12 @@ Vagrant.configure(2) do |config|
       node.vm.box = machine[:box]
       node.vm.hostname = machine[:hostname]
       node.vm.network "private_network", ip: machine[:ip]
-<<<<<<< HEAD
-=======
       node.vm.provision "shell", path: machine[:bootstrap]
->>>>>>> 080737107d0ba9cb4b467d2a0d36c3e66d0fe043
       node.vm.provider "virtualbox" do |vb|
         vb.gui = false
         vb.memory = machine[:ram]
         vb.cpus = machine[:cpu]
-<<<<<<< HEAD
-=======
         #config.vm.provision "shell", path: machine[:bootstrap]
->>>>>>> 080737107d0ba9cb4b467d2a0d36c3e66d0fe043
       end
     #config.vm.provision "shell", path: "bootstrap-cmkwinnode.ps1"
     end
