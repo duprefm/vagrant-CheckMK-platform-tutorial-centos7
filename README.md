@@ -70,48 +70,13 @@ Set LIVESTATUS_TCP to ‘on’ and enter an available port number for LIVESTATUS
 
 ![title](Images/Distributed_monitoring06.PNG)
 
-After saving, start the site as normal with omd start:
+After saving, start the site **remotesite1** :
 
-```
-sudo omd stop <site-name>
-sudo omd config <site-name>
-```
-
-Under `Basic` choose the `Icinga` core as it has some improvements over the classic `Nagios` core.
-
-Don't forget to restart the site:
-
-```
-sudo omd start <site-name>
+```bash
+sudo omd start remotesite1
 ```
 
-Now that the site is configured and running, let's `su` into it:
-
-```
-sudo omd su <site-name>
-omd status
-exit
-```
-
-# Installing the agent
-Inside the checkmk-vagrant box, issue:
-```
-sudo dpkg -i /opt/omd/versions/1.2.6p12.cre/share/check_mk/agents/check-mk-agent_1.2.6p12-1_all.deb
-```
-
-Now navigate to the web-ui of the checkmk-vagrant box. It will have received an address from your local DHCP server.
-`http://<ip>/<site-name>/`
-
-The default credentials for OMD are:
-- username: omdadmin
-- password: omd
-
-In order to add a host:
-- In the sidebar, go to the WATO `main menu`, click `hosts`, click `add a new host`.
-- As a hostname choose `localhost`, as we will monitor the agent running on the vagrant box itself. You can leave all the other settings and host-tags as is.
-- Click `Save and go to services`
-- Click `save manual check configuration`
-- Activate your changes!
+![title](Images/Distributed_monitoring07.PNG)
 
 # Command-line Interface
 First, we need to navigate to the OMD site:
