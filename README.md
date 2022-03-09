@@ -32,6 +32,7 @@ Now i will create some folders, setup 'Automatic updates' feature for agents, de
 - Creating folder 'CentralSite'.
 - Creating folder 'RemoteSite1'.
 - Setup 'Automatic updates'.
+
   https://docs.checkmk.com/latest/en/agent_deployment.html
 
   Don't forget this settings on distributed monitoring.
@@ -39,6 +40,7 @@ Now i will create some folders, setup 'Automatic updates' feature for agents, de
 ![title](Images/Agent_autoupdate01.PNG)
 
 - Install CheckMK agent on servers.
+
   https://docs.checkmk.com/latest/en/agent_linux.html
   https://docs.checkmk.com/latest/en/agent_windows.html
 
@@ -72,7 +74,8 @@ Now select Distributed Monitoring:
 
 ![title](Images/Distributed_monitoring01.PNG)
 
-Set LIVESTATUS_TCP to ‘on’ and enter an available port number for LIVESTATUS_TCP_PORT that is explicit on this server. The default is 6557:
+Set LIVESTATUS_TCP to ‘on’ and enter an available port number for LIVESTATUS_TCP_PORT that is explicit on this server. 
+The default is 6557:
 
 ![title](Images/Distributed_monitoring06.PNG)
 
@@ -82,39 +85,54 @@ After saving, start the site **remotesite1** :
 sudo omd start remotesite1
 ```
 
+- Behind **remotesite1** settings.
+
 ![title](Images/Distributed_monitoring07.PNG)
 
-After moving node02 to **remotesite1** :
-- Connected on the client side :
-On command prompt (run as an administrator), run the following :
-```dos
->msiexec /i C:\vagrant\check-mk-agent-2.0.0p20-[hash].msi /qn
-C:\Program Files (x86)\checkmk\service>check_mk_agent.exe updater register -s 192.168.10.15 -i remotesite1 -H [monitored server name] -U cmkadmin -P [password for cmkadmin user]
-C:\Program Files (x86)\checkmk\service>check_mk_agent.exe cmk_update_agent
-```
 # UK's needs
 -	Configuration of groups, views and structure for monitoring
 -	Configuration of thresholds & alerts
 -	Import and export configurations or templates to simplify config for multiple systems in different networks
 -	Adding/removing servers, ESX hosts, databases, Active Directory ect
     - ESX hosts
+
     https://docs.checkmk.com/latest/en/monitoring_vmware.html
+
+    ![title](Images/ESX_VMWare_Monitoring_Rule01.PNG)
     - databases
+
+    I've decided xto install Mariadb on **node01**
+
+    ```bash
+    sudo yum install mariadb-server -y
+    sudo systemctl start mariadb
+    sudo systemctl enable mariadb
+    sudo mysql_secure_installation
+    ```
+    
     https://docs.checkmk.com/latest/en/monitoring_mysql.html
+
+    ![title](Images/MYSQL_Monitoring_Rule01.PNG)
+
     https://docs.checkmk.com/latest/en/monitoring_oracle.html
     - Active Directory ect
+
     You can setup Active Directory monitoring by enabling `Agent rules` for Active Directory
 
-![title](Images/Active_Directory_Monitoring_Rule01.PNG)
+    ![title](Images/Active_Directory_Monitoring_Rule01.PNG)
 
 -	Adding/removing other devices such as NetApp, HP specific monitoring using addin to Check MK
+    - NetApp
+
+    ![title](Images/Netapp_Monitoring_Rule01.PNG)
+
 -	User administration
 -	Reporting – general view and possible scheduling of contract required reports i.e. availability etc
 -	Upgrading Check MK
 -	Integration with other tools
+Using API's it's possible to interact with other tools.
 
-
-# Command-line Interface
+# Command-line Interface suviva guide
 First, we need to navigate to the OMD site:
 
 - Connected on **central** server :
