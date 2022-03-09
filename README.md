@@ -35,7 +35,7 @@ Now i will create some folders, setup 'Automatic updates' feature for agents, de
 
   https://docs.checkmk.com/latest/en/agent_deployment.html
 
-  Don't forget this settings `Automatic updates` setup, is verry usefull on distributed monitoring.
+  Don't forget to setup this settings during `Automatic updates` setup, it will be very useful for distributed monitoring.
 
 ![title](Images/Agent_autoupdate01.PNG)
 
@@ -53,6 +53,7 @@ $ sudo /usr/lib/check_mk_agent/plugins/900/cmk-update-agent -v
 ```
 ### Install Check_MK agent on Windows
 - Connected on the client side :
+
 On command prompt (run as an administrator), run the following :
 ```dos
 >msiexec /i C:\vagrant\check-mk-agent-2.0.0p20-[hash].msi /qn
@@ -145,7 +146,7 @@ https://docs.checkmk.com/latest/en/update.html
 -	Integration with other tools
 Using API's it's possible to interact with other tools.
 
-# Command-line Interface suviva guide
+# Command-line Interface survival guide
 First, we need to navigate to the OMD site:
 
 - Connected on **central** server :
