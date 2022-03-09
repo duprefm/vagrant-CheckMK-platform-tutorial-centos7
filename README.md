@@ -129,11 +129,13 @@ sudo omd start remotesite1
 -	User administration
 
 https://docs.checkmk.com/latest/en/wato_user.html
+
 https://docs.checkmk.com/latest/en/intro_users.html
 
 -	Reporting – general view and possible scheduling of contract required reports i.e. availability etc
 
 https://docs.checkmk.com/latest/en/reporting.html
+
 https://docs.checkmk.com/latest/en/availability.html
 
 -	Upgrading Check MK
