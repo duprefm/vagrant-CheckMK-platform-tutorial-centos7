@@ -64,6 +64,7 @@ $ sudo su -
 $ omd config
 ```
 Now select Distributed Monitoring:
+
 ![title](Images/Distributed_monitoring01.PNG)
 
 Set LIVESTATUS_TCP to ‘on’ and enter an available port number for LIVESTATUS_TCP_PORT that is explicit on this server. The default is 6557:
@@ -81,14 +82,15 @@ sudo omd start remotesite1
 # Command-line Interface
 First, we need to navigate to the OMD site:
 
+- Connected on **central** server :
 ```
-sudo omd su <site-name>
+sudo omd su centralsite
 ```
 
-To query localhost for all check results:
+To query **centralsite** for all check results:
 
 ```
-cmk -nv localhost
+cmk -nv centralsite
 ```
 
 In order to take a look at the site's monitoring configuration (hosts, services, etc)
@@ -97,17 +99,17 @@ In order to take a look at the site's monitoring configuration (hosts, services,
 cmk -D
 ```
 
-Let's directly query `localhost`'s agent:
+Let's directly query `centralsite`'s agent:
 
 ```
-cmk -d localhost
+cmk -d centralsite
 ```
 
-It is also possible to run an inventory check on `localhost`
+It is also possible to run an inventory check on `centralsite`
 The inventory check will query the agent for any newly discovered checks that may want to be inventorized.
 
 ```
-cmk -I localhost
+cmk -I centralsite
 ```
 
 # Writing an own agent plugin
