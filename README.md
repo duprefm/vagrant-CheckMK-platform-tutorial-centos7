@@ -15,9 +15,9 @@ vagrant up
 ```
 ## Central Site creation
 Once the Vagrant box has spun up successfully a new site called **CentralSite** must be created.
+- Connected on **central** server :
 
 ```bash
-> vagrant ssh central
 $ sudo yum install /vagrant/check-mk-free-2.0.0p20-el7-38.x86_64.rpm -y
 $ sudo omd create centralsite
 $ sudo omd start centralsite
@@ -34,16 +34,18 @@ Now i will create some folders, setup 'Automatic updates' feature for agents, de
 - Setup 'Automatic updates'.
   https://docs.checkmk.com/latest/en/agent_deployment.html
 - Install CheckMK agent on servers.
+  https://docs.checkmk.com/latest/en/agent_linux.html
+  https://docs.checkmk.com/latest/en/agent_windows.html
 
 ### Install Check_MK agent on Linux
-- Connected on the client side.
+- Connected on the client side :
 ```bash
 $ sudo yum install /vagrant/check-mk-agent-2.0.0p20-[hash].noarch.rpm -y
 $ sudo /usr/lib/check_mk_agent/plugins/900/cmk-update-agent register -vvv -s 192.168.10.14 -i centralsite -p http -H [monitored server name] -U cmkadmin -P [password for cmkadmin user]
 $ sudo /usr/lib/check_mk_agent/plugins/900/cmk-update-agent -v
 ```
 ### Install Check_MK agent on Windows
-- Connected on the client side.
+- Connected on the client side :
 On command prompt (run as an administrator), run the following :
 ```dos
 >msiexec /i C:\vagrant\check-mk-agent-2.0.0p20-[hash].msi /qn
@@ -52,9 +54,8 @@ C:\Program Files (x86)\checkmk\service>check_mk_agent.exe cmk_update_agent
 ```
 ## RemoteSite1 Site creation
 Once the Central Site has been successfully created, a new slave site called **remotesite1** must be created.
-
+- Connected on **remote1** server :
 ```bash
-> vagrant ssh remote1
 $ sudo yum install /vagrant/check-mk-free-2.0.0p20-el7-38.x86_64.rpm -y
 $ sudo omd create remotesite1
 $ sudo omd start remotesite1
