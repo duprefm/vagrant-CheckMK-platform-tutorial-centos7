@@ -62,12 +62,15 @@ $ sudo omd start remotesite1
 $ sudo su -
 # su - remotesite1
 $ omd config
-...
-$ omd start
 ```
+Now select Distributed Monitoring:
+![title](Images/Distributed_monitoring01.PNG)
 
+Set LIVESTATUS_TCP to ‘on’ and enter an available port number for LIVESTATUS_TCP_PORT that is explicit on this server. The default is 6557:
 
-Once a site has been created it can be configured.
+![title](Images/Distributed_monitoring06.PNG)
+
+After saving, start the site as normal with omd start:
 
 ```
 sudo omd stop <site-name>
