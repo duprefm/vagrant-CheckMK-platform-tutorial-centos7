@@ -179,7 +179,7 @@ The inventory check will query the agent for any newly discovered checks that ma
 cmk -I centralsite
 ```
 
-# Writing an own agent plugin
+<!-- # Writing an own agent plugin
 Extending the agent with plugins is a twofold process.
 - The agent needs to be extended to output a new section containing all infos
 - The server needs to be extended to be able to check and inventorize this new section.
@@ -265,5 +265,5 @@ EOF
 
 cmk -I localhost
 cmk -R
-cmk -nv localhost | grep coffee
+cmk -nv localhost | grep coffee -->
 ```
