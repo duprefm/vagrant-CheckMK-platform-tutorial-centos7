@@ -32,6 +32,7 @@ Now i will create some folders, setup 'Automatic updates' feature for agents, de
 - Creating folder 'CentralSite'.
 - Creating folder 'RemoteSite1'.
 - Setup 'Automatic updates'.
+  https://docs.checkmk.com/latest/en/agent_deployment.html
 - Install CheckMK agent on servers.
 
 ### Install Check_MK agent on Linux
