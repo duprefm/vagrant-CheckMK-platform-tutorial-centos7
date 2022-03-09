@@ -35,7 +35,7 @@ Now i will create some folders, setup 'Automatic updates' feature for agents, de
 
   https://docs.checkmk.com/latest/en/agent_deployment.html
 
-  Don't forget this settings on distributed monitoring.
+  Don't forget this settings `Automatic updates` setup, is verry usefull on distributed monitoring.
 
 ![title](Images/Agent_autoupdate01.PNG)
 
@@ -127,8 +127,19 @@ sudo omd start remotesite1
     ![title](Images/Netapp_Monitoring_Rule01.PNG)
 
 -	User administration
+
+https://docs.checkmk.com/latest/en/wato_user.html
+https://docs.checkmk.com/latest/en/intro_users.html
+
 -	Reporting – general view and possible scheduling of contract required reports i.e. availability etc
+
+https://docs.checkmk.com/latest/en/reporting.html
+https://docs.checkmk.com/latest/en/availability.html
+
 -	Upgrading Check MK
+
+https://docs.checkmk.com/latest/en/update.html
+
 -	Integration with other tools
 Using API's it's possible to interact with other tools.
 
