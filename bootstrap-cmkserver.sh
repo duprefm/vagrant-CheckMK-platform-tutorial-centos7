@@ -14,5 +14,5 @@ sudo yum install wget -y
 #sudo firewall-cmd --zone=public --add-service=http --permanent
 #sudo firewall-cmd --reload
 sudo yum install /vagrant/check-mk-free-*.rpm -y
-sudo omd create $(hostname -s) | tee /vagrant/install_$(hostname -s).log
-sudo omd start $(hostname -s)
+sudo omd create "$(hostname -s)" | tee /vagrant/install_"$(hostname -s)".log
+sudo omd start "$(hostname -s)"
